@@ -1,0 +1,35 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: flux-test-hw
+  labels:
+    app: flux-hw
+spec:
+  selector:
+    matchLabels:
+      app: flux-hw
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flux-hw
+    spec:
+      containers:
+      - name: porch-guru-api
+        image: gcr.io/non-prod-258311/hw:1.0.0
+        # TODO: need to figure out what pull policy is required w/ flux deployments
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  flux-hw-service
+  labels:
+    app:  flux-hw-service
+spec:
+  selector:
+    app:  flux-hw
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
