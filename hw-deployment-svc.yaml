@@ -1,9 +1,12 @@
+---
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: flux-test-hw
   labels:
     app: flux-hw
+  annotations:
+    fluxcd.io/automated: 'true'
 spec:
   selector:
     matchLabels:
@@ -23,12 +26,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name:  flux-hw-service
+  name: flux-hw-service
   labels:
-    app:  flux-hw-service
+    app: flux-hw-service
 spec:
   selector:
-    app:  flux-hw
+    app: flux-hw
   ports:
   - name: http
     port: 3000
