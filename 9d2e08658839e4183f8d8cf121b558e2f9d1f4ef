@@ -1,0 +1,1 @@
+{"jobID":"cf82b0ea-c4ed-6d21-d1cb-4264e49e7065","spec":{"type":"policy","cause":{"Message":"","User":""},"spec":{"default:deployment/flux-test-hw":{"add":{"automated":"true"},"remove":{}}}},"result":null}
