@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: flux-test-hw
-        image: gcr.io/non-prod-258311/hw:1.0.6
+        image: gcr.io/non-prod-258311/hw:1.0.10
         # TODO: need to figure out what pull policy is required w/ flux deployments
         imagePullPolicy: Always
 ---
